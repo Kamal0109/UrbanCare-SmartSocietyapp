@@ -2,6 +2,7 @@ package com.example.adminprofile
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.adminprofile.databinding.ActivityShowBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -15,12 +16,18 @@ class ShowActivity : AppCompatActivity() {
 
     val database : FirebaseDatabase = FirebaseDatabase.getInstance()
     val myreference : DatabaseReference = database.reference.child("Users")
+    private val usersList: ArrayList<User> = ArrayList()
+    private lateinit var usersAdapter: UserAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         showBinding = ActivityShowBinding.inflate(layoutInflater)
         val view = showBinding.root
         setContentView(view)
+
+        usersAdapter = UserAdapter(this,usersList)
+        showBinding.recyclerView.layoutManager = LinearLayoutManager(this)
+
 
 
         retrieveDataFromDatabase()

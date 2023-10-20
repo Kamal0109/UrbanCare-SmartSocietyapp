@@ -5,5 +5,4 @@ data class Admin(val userId : String = "",
                 val email : String = "",
                 val phoneNo : String = "") {
 
-
 }

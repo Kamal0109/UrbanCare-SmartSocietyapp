@@ -1,5 +1,6 @@
 package com.example.adminprofile
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -24,6 +25,8 @@ class AdminActivity : AppCompatActivity() {
         adminBinding.button.setOnClickListener {
 
             addUserToDatabase()
+            val intent = Intent(this@AdminActivity,HomeActivity::class.java)
+            startActivity(intent)
 
         }
 

@@ -27,6 +27,8 @@ class MainActivity : AppCompatActivity() {
         mainBinding.button.setOnClickListener {
 
             addUserToDatabase()
+            val intent = Intent(this@MainActivity,HomeActivity::class.java)
+            startActivity(intent)
 
         }
 
